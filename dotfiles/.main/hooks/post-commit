@@ -1,0 +1,15 @@
+cf="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+
+
+# если на ветке linux то:
+if [[ $($cf rev-parse --abbrev-ref HEAD) = "linux" ]]; then
+    $cf rebase linux linux-pacman
+    $cf rebase linux debian-apt
+    $cf checkout linux
+fi
+
+# если на ветке linux-pacman то:
+if [[ $($cf rev-parse --abbrev-ref HEAD) = "linux-pacman" ]]; then
+    $cf rebase linux-pacman linux-pacman-kde
+    $cf checkout linux-pacman
+fi
