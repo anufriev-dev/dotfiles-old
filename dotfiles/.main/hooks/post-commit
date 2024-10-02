@@ -1,15 +1,27 @@
-cf="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+GIT="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+extension_path=$HOME/dotfiles/.main/.vscode/extensions.txt
+git rev-parse --abbrev-ref HEAD
 
 
-# если на ветке linux то:
-if [[ $($cf rev-parse --abbrev-ref HEAD) = "linux" ]]; then
-    $cf rebase linux linux-pacman
-    $cf rebase linux debian-apt
-    $cf checkout linux
+BASE_BRANCH=$($GIT rev-parse --abbrev-ref HEAD)
+
+if [[ $BASE_BRANCH != "linux" ]]; then
+    code --list-extensions > $extension_path
+
+    if ! $GIT diff --quiet $extension_path; then
+        $GIT switch linux
+        $GIT add $extension_path
+        $GIT commit -m "vs code list ext update"
+        $GIT switch $BASE_BRANCH
+    fi
 fi
 
-# если на ветке linux-pacman то:
-if [[ $($cf rev-parse --abbrev-ref HEAD) = "linux-pacman" ]]; then
-    $cf rebase linux-pacman linux-pacman-kde
-    $cf checkout linux-pacman
-fi
+
+$GIT rebase --strategy-option=ours linux linux-pacman
+$GIT rebase --strategy-option=ours linux-pacman linux-pacman-kde
+
+case $BASE_BRANCH in
+    "linux") $GIT checkout linux;; # если на ветке linux
+    "linux-pacman") $GIT checkout linux-pacman;; # если на ветке linux-pacman
+    "linux-pacman-kde") $GIT checkout linux-pacman-kde;; # если на ветке linux-pacman-kde
+esac
