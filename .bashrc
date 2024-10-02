@@ -34,6 +34,8 @@ alias ports="ss -tulnp" # check ports
 
 # for arch linux
 . .bashrc.arch.sh &> /dev/null
+# Rust
+. "$HOME/.cargo/env" &> /dev/null
 
 # config dotfiles
 alias cf="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
@@ -65,4 +67,3 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_BIN_HOME="${HOME}/.local/bin"
 export XDG_LIB_HOME="${HOME}/.local/lib"
 export XDG_CACHE_HOME="${HOME}/.cache"
-. "$HOME/.cargo/env"
