@@ -1,4 +1,9 @@
 
+set -a
+. ../.env
+set +a
+
+
 if [[ $BASE_BRANCH != "linux" ]]; then
     code --list-extensions > $EXT_PATH
 

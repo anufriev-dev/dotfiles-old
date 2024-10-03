@@ -1,3 +1,7 @@
+set -a
+. ../.env
+set +a
+
 # git add
 # $GIT add $HOME/.config/Code/User/settings.json &> /dev/null
 # $GIT add $HOME/.config/Code/User/snippets/* &> /dev/null
