@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# 
+#
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -39,6 +39,7 @@ alias ports="ss -tulnp" # check ports
 
 # config dotfiles
 alias cf="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+alias cfd="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME/dotfiles-dev"
 
 # shell view
 function parse_git_branch () {

@@ -1,16 +1,12 @@
 set -a
-. ../.env
+. $HOME/dotfiles/.main/.env
 set +a
-
-# git add
-# $GIT add $HOME/.config/Code/User/settings.json &> /dev/null
-# $GIT add $HOME/.config/Code/User/snippets/* &> /dev/null
 
 if [[ $($GIT rev-parse --abbrev-ref HEAD) = "linux" ]]; then
 	if command -v code &> /dev/null; then
 		# update vs code extensions
 		code --list-extensions > $EXT_PATH
-		# "cf" - is alias in .bashrc
+
 		$GIT add $EXT_PATH
 		echo "vs code extensions updated!"
 	else

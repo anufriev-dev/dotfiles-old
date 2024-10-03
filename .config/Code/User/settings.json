@@ -11,6 +11,7 @@
     "editor.unicodeHighlight.nonBasicASCII": false, // Отключает подсветку не базовых символов ASCII в редакторе
     "editor.unicodeHighlight.includeStrings": false, // Отключает подсветку строк с не базовыми символами ASCII
     "editor.unicodeHighlight.invisibleCharacters": false, // Отключает подсветку невидимых символов в редакторе
+    "editor.stickyScroll.enabled": false, // Отключает функцию "липкой прокрутки", которая фиксирует текущие области кода в верхней части редактора.
 
 
     // Настройки работы с файлами
@@ -120,6 +121,7 @@
     // Для Hex Editor
     "hexeditor.showOpenFileButton": true, // Показывает кнопку открытия файла в редакторе шестнадцатеричного кода
     // Для HTML CSS Support
-    "css.styleSheets": ["**/*.css"]
-
+    "css.styleSheets": [
+        "**/*.css"
+    ],
 }

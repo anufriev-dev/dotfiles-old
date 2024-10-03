@@ -1,6 +1,6 @@
 
 set -a
-. ../.env
+. $HOME/dotfiles/.main/.env
 set +a
 
 
