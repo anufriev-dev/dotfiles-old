@@ -1,16 +1,10 @@
-GIT="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
-extension_path=$HOME/dotfiles/.main/.vscode/extensions.txt
-git rev-parse --abbrev-ref HEAD
-
-
-BASE_BRANCH=$($GIT rev-parse --abbrev-ref HEAD)
 
 if [[ $BASE_BRANCH != "linux" ]]; then
-    code --list-extensions > $extension_path
+    code --list-extensions > $EXT_PATH
 
-    if ! $GIT diff --quiet $extension_path; then
+    if ! $GIT diff --quiet $EXT_PATH; then
         $GIT switch linux
-        $GIT add $extension_path
+        $GIT add $EXT_PATH
         $GIT commit -m "vs code list ext update"
         $GIT switch $BASE_BRANCH
     fi

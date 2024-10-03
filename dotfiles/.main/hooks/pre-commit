@@ -1,18 +1,13 @@
-extension_path=$HOME/dotfiles/.main/.vscode/extensions.txt
-
-GIT="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
-
 # git add
 # $GIT add $HOME/.config/Code/User/settings.json &> /dev/null
 # $GIT add $HOME/.config/Code/User/snippets/* &> /dev/null
 
-
 if [[ $($GIT rev-parse --abbrev-ref HEAD) = "linux" ]]; then
 	if command -v code &> /dev/null; then
 		# update vs code extensions
-		code --list-extensions > $extension_path
+		code --list-extensions > $EXT_PATH
 		# "cf" - is alias in .bashrc
-		$GIT add $extension_path
+		$GIT add $EXT_PATH
 		echo "vs code extensions updated!"
 	else
 		echo "[ vscode not installed ]"
