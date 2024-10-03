@@ -1,0 +1,45 @@
+{
+    "system": {
+      "linux": {
+        "file": [
+          "$HOME/.bashrc",
+          "$HOME/.config/git/config",
+          "$HOME/.config/git/ignore",
+          "$HOME/.config/Code/User/settings.json",
+          "$HOME/.config/Code/User/snippets/*",
+          "$HOME/dotfiles/.main/install.sh",
+          "$HOME/dotfiles/.main/.vscode/extensions.txt",
+          "$HOME/dotfiles/.main/hooks/pre-commit",
+          "$HOME/dotfiles/.main/hooks/post-commit",
+          "$HOME/dotfiles/.main/README.md"
+        ],
+        "package-manager": {
+          "name": [
+            "linux-apt",
+            "linux-dnf",
+            "linux-pacman",
+            "linux-zipper"
+          ],
+          "file": [
+            "$HOME/dotfiles/.main/package-manager.sh",
+            "$HOME/dotfiles/.main/README.md"
+          ]
+        },
+        "display-manager": {
+          "name": [
+            "linux-pacman-kde"
+          ],
+          "file": [
+            "$HOME/dotfiles/.main/gui.sh",
+            "$HOME/dotfiles/.main/README.md"
+          ]
+        }
+      },
+      "macos": {
+
+      },
+      "windows": {
+
+      }
+    }
+  }
