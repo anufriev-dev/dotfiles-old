@@ -124,4 +124,5 @@
     "css.styleSheets": [
         "**/*.css"
     ],
+    "python.createEnvironment.trigger": "off",
 }
